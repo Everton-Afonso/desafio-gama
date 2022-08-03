@@ -1,0 +1,21 @@
+:root {
+  --purple: #996dff;
+  --purple-mid: #8257e5;
+  --purple-dark: #633bbc;
+  --background: #f0f2f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+}

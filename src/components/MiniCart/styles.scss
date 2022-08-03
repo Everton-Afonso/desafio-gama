@@ -1,0 +1,24 @@
+.navbar-mini-cart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  button {
+    ---afterDisplay: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    background: transparent;
+    border: none;
+
+    .navbar--min-cart-quantity {
+      position: absolute;
+      color: #fff;
+      top: 1%;
+      margin-left: 3px;
+    }
+  }
+}
