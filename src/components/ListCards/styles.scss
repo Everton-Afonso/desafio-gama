@@ -1,0 +1,11 @@
+.list-cards-container {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 110px 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}

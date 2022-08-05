@@ -1,19 +1,25 @@
 import axios from "axios";
 
-export type ApiData = {
+export interface GetPokemonProps {
   name: string;
   url: string;
+}
+
+export interface ApiMeta {
+  count: number;
+  previous: string;
+  next: string;
+}
+
+export const GetApiPokemons = async (offset: number, limit: number) => {
+  const res = await axios.get(
+    `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+  );
+  return res;
 };
 
-export const apiPokemons = async () => {
-  const api = await axios
-    .get("https://pokeapi.co/api/v2/pokemon");
-
-    return api;
-};
-
-export const GetPokemonChar = async (pokemon: ApiData) => {
-  const response = await axios.get(pokemon.url);
-  const price = response.data.height + response.data.weight;
-  return { ...response.data, price, qnt: 0 };
+export const GetPokemon = async (pokemon: GetPokemonProps) => {
+  const res = await axios.get(pokemon.url);
+  const price = res.data.height + res.data.weight;
+  return { ...res.data, price, qnt: 0 };
 };

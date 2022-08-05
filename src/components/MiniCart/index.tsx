@@ -1,15 +1,24 @@
-import { useContext, useState } from "react";
 import MiniCartLogo from "../../assets/svg/shopping-cart-icon.svg";
-import { CartContext } from "../../contexts";
-
+import { PokemonCartItem, usePokemonList } from "../../contexts/context";
+import Sidebar from "../Sidebar";
 import "./styles.scss";
 
-const MiniCart = () => {
-  const { isSidebarOpen, setIsSidebarOpen } = useContext(CartContext);
-  const [cartQuantity, setCartQuantity] = useState<number>(1);
+const MiniCart: React.FC<{ pokemonCart: PokemonCartItem[] }> = ({
+  pokemonCart,
+}) => {
+  const {
+    isCloseMiniCart,
+    setIsCloseMiniCart,
+    handlePushAddCart,
+    handleDeleteFromCart,
+  } = usePokemonList();
+
+  const totalItemsCart = pokemonCart
+    .map((item) => item.qnt)
+    .reduce((totalItems, item) => totalItems + item, 0);
 
   const handleShowSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsCloseMiniCart(!isCloseMiniCart);
   };
 
   return (
@@ -17,11 +26,17 @@ const MiniCart = () => {
       <div className="navbar-mini-cart" onClick={handleShowSidebar}>
         <button>
           <div className="navbar--min-cart-quantity">
-            <p>{cartQuantity > 0 && cartQuantity }</p>
+            <p>{totalItemsCart === 0 ? "" : totalItemsCart}</p>
           </div>
           <img src={MiniCartLogo} alt="Carrinho de compras" />
         </button>
       </div>
+
+      <Sidebar
+        pokemonCart={pokemonCart}
+        pushToCart={handlePushAddCart}
+        deleteFromCart={handleDeleteFromCart}
+      />
     </>
   );
 };

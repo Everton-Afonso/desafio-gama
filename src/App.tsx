@@ -1,15 +1,17 @@
-import { CartContextProvider } from "./contexts";
+import { GlobalContext } from "./contexts";
 import Header from "./components/Header";
+import ListCards from "./components/ListCards";
 
 import "./styles/global.scss";
 
 function App() {
   return (
-    <CartContextProvider>
+    <GlobalContext>
       <div className="App">
         <Header />
+        <ListCards />
       </div>
-    </CartContextProvider>
+    </GlobalContext>
   );
 }
 
