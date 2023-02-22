@@ -44,7 +44,7 @@ const PokemonListProvider = ({ children }: ChildrenTypes) => {
   const [apiMeta, setApiMeta] = useState<ApiMeta | null>(null);
   const limit: number = 20;
 
-  const getStorage: string | null = localStorage.getItem("addPokemon") || "";
+  const getStorage: string | null = localStorage.getItem("pokemonCart") || "";
   let initialCart: PokemonCartItem[] =
     getStorage !== "" ? JSON.parse(getStorage) : [];
 
@@ -98,6 +98,10 @@ const PokemonListProvider = ({ children }: ChildrenTypes) => {
     }).format(value);
   };
 
+  const handlerCloseMiniCart = () => {
+    setIsCloseMiniCart(!isCloseMiniCart);
+  };
+
   useEffect(() => {
     const getListPokemons = async () => {
       const {
@@ -127,7 +131,7 @@ const PokemonListProvider = ({ children }: ChildrenTypes) => {
         handlePushAddCart,
         handleCleanCart,
         handleDeleteFromCart,
-        setIsCloseMiniCart,
+        handlerCloseMiniCart,
         handleFormatPrice,
         isCloseModal,
         setIsCloseModal,

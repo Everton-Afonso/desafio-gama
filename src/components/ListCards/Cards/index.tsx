@@ -1,4 +1,4 @@
-import { PokemonResult, usePokemonList } from "../../contexts/context";
+import { PokemonResult, usePokemonList } from "../../../contexts/context";
 
 import "./styles.scss";
 
@@ -10,22 +10,22 @@ const Cards: React.FC<{
   let imgPokemon = pokemon.sprites.front_default;
 
   return (
-    <section className="card-container">
-      <div className="card-content">
-        <div className="card-id">
+    <section className="card_container">
+      <div className="card_content">
+        <div className="card_id">
           <p>{`#${pokemon.id}`}</p>
         </div>
 
-        <section className="card-description-pokemon">
+        <section className="card_description_pokemon">
           <div>
-            <img src={imgPokemon} alt={`${pokemon.name} image`} />
+            <img src={imgPokemon} alt={`${pokemon.name}`} />
           </div>
 
-          <div className="card-description">
+          <div className="card_description">
             <h3>{pokemon.name}</h3>
             <p>{handleFormatPrice(pokemon.price)}</p>
 
-            <div className="card-button-add">
+            <div className="card_button_add">
               <button
                 onClick={() => {
                   pushToCart(pokemon, 1);

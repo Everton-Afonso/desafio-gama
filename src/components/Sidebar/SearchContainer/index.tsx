@@ -1,4 +1,4 @@
-import Search from "../../assets/svg/search.svg";
+import Search from "../assets/svg/search.svg";
 
 import "./styles.scss";
 

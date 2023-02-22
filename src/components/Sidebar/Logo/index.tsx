@@ -1,4 +1,4 @@
-import LogoPokemon from "../../assets/img/pokemon-logo.png";
+import LogoPokemon from "../../../assets/img/pokemon-logo.png";
 
 import "./styles.scss";
 

@@ -1,31 +1,31 @@
-.card-container {
+.card_container {
   width: 150px;
   border: 1px solid #000;
   border-radius: 5px;
 
-  .card-content {
+  .card_content {
     padding: 5px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .card-id {
+    .card_id {
       display: flex;
       justify-content: end;
     }
 
-    .card-description-pokemon {
+    .card_description_pokemon {
       display: flex;
       align-items: center;
       flex-direction: column;
 
-      .card-description {
+      .card_description {
         align-items: center;
         display: flex;
         flex-direction: column;
         gap: 0.3rem;
 
-        .card-button-add {
+        .card_button_add {
           margin-top: 10px;
 
           button {
@@ -34,7 +34,7 @@
             border: none;
             border-radius: 5px;
             color: #fff;
-            transition: .2s;
+            transition: 0.2s;
 
             &:hover {
               background-color: var(--purple-dark);
